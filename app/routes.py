@@ -43,7 +43,7 @@ def view_users():
         return render_template("error.html")
 
 
-@app.get("users/new")
+@app.get("/users/new")
 def create_user():
     return render_template("new_user.html")
 
