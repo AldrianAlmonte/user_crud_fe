@@ -41,3 +41,38 @@ def view_users():
         return render_template("user_list.html", users=user_list)
     else:
         return render_template("error.html")
+
+
+@app.get("users/new")
+def create_user():
+    return render_template("new_user.html")
+
+
+@app.get("/users/create")
+def create_user():
+    create_url = "%s/%s" % (BACKEND_URL, "users")
+    response = requests.post(create_url)
+    if response.status_code == 204:
+        return render_template("create.html")
+    else:
+        return render_template("error.html")
+
+
+@app.get("/users/<int:pk>")
+def delete_user(pk):
+    delete_url = "%s/%s" % (BACKEND_URL, f"users/{pk}")
+    response = requests.delete(delete_url)
+    if response.status_code == 204:
+        return render_template("delete.html", userID=pk)
+    else:
+        return render_template("error.html")
+
+
+@app.get("/users/update/<int:pk>")
+def update_user(pk):
+    update_url = "%s/%s" % (BACKEND_URL, f"users/{pk}")
+    response = requests.put(update_url)
+    if response.status_code == 204:
+        return render_template("update.html", userID=pk)
+    else:
+        return render_template("error.html")

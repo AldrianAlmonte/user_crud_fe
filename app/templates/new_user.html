@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titlte %}New User{% endblock titlte %}
+
+{% block content %}
+<h1>Create User</h1>
+<form method="POST" action="{{ url_for('send_user-create-request') }}">
+    <p>
+        <label for="first_name">First Name: </label>
+        <input name="first_name" id="first_name" type="text">
+    </p>
+    <p>
+        <label for="last_name">First Name: </label>
+        <input name="last_name" id="last_name" type="text">
+    </p>
+    <p>
+        <label for="hobbies">First Name: </label>
+        <textarea name="hobbies" id="hobbies" type="text"></textarea>
+    </p>
+    <p>
+        <input type="submit" value="Create" class="btn btn-dark">
+    </p>
+</form>
+{% endblock content %}
