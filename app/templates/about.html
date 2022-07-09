@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block content %}
+<h1>About User System</h1>
+{% if content["up"] %}
+<p>The system is up and running!</p>
+<p>You are connected to version: {{ content["version"] }}.</p>
+{% else %}
+<p>The system is down for maintenance :(</p>
+{% endif %}
+{% endblock content %}
